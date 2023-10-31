@@ -1,28 +1,13 @@
+#include <iostream>
+using namespace std;
 pair<long long, long long> getMinMax(long long a[], int n) {
-    cin >> n;
-    for(int i=0;i<n;i++)
-    {
-        cin >> a[i];
+     long long minVal = LLONG_MAX;
+    long long maxVal = LLONG_MIN;
+
+    for (int i = 0; i < n; i++) {
+        minVal = min(minVal, a[i]);
+        maxVal = max(maxVal, a[i]);
     }
-    int min=a[0];
-    for(int i=1;i<n;i++)
-    {
-        if(min > a[i])
-        {
-            min=a[i];
-        }
-    }
-    int max=a[0];
-    for(int i=1;i<n;i++)
-    {
-        if(max < a[i])
-        {
-            max=a[i];
-        }
-    }
-    /*pair.first=min;
-    pair.second=max;
-    cout << pair.first << " " << pair.second;*/
-    pair(min,max);
-    return pair;
-    
+
+    return make_pair(minVal, maxVal);
+}
